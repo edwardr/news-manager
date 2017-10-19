@@ -1,0 +1,117 @@
+/**
+ * Settings
+ */
+
+html.settings {
+	body {
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background: #f1f1f1;
+	}
+
+	h2.heading {
+		margin-top: 0;
+	}
+
+	#container {
+		max-width: 800px;
+		margin: 0 auto;
+		height: 90vh;
+		width: 100%;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		background: #fff;
+		border-radius: 2px;
+		margin-top: 1rem;
+		overflow-y: auto;
+		position: relative;
+	}
+
+	.header {
+		padding: 1rem 3rem;
+		padding-bottom: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	.header .heading {
+		display: inline-block;
+	}
+
+	.header .submit {
+		float: right;
+		padding: 0.5em 2.5em;
+		background: rgba(0,0,0,1);
+		color: white;
+		font-weight: bold;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		-webkit-transition: background 0.5s;
+		transition: background 0.5s;
+	}
+
+	.header .submit:hover {
+		background: rgba(0,0,0, 0.7);
+	}
+
+	.sources-wrap {
+		display: flex;
+	}
+
+	.inner-wrap {
+		padding: 1rem 3rem;
+		margin-top: 52px;
+	}
+
+	.sources-wrap .column {
+		flex: 1;
+	}
+
+	.column.sources label {
+		width: 100%;
+		display: block;
+		cursor: pointer;
+	}
+
+	.add-source {
+		display: flex;
+	}
+
+	.add-source .column {
+		flex: 1;
+	}
+
+	.add-source .add-button {
+		position: absolute;
+		width: 20px;
+		cursor: pointer;
+	}
+
+	.add-source input {
+		width: 95%;
+	}
+
+	.custom-source {
+		position: relative;
+		margin-bottom: 15px;
+		border: 1px dashed black;
+		padding: 10px;
+	}
+
+	.custom-source .source-name {
+		margin-bottom: 10px;
+		font-weight: bold;
+		display: block;
+	}
+
+	.remove-button {
+		width: 18px;
+		position: absolute;
+		right: 2px;
+		top: 2px;
+	}	
+}
