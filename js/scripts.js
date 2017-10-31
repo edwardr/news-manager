@@ -1,6 +1,7 @@
 (function() {
 	'use strict';
-	var getSourceName, getSourceURL, xmlToJson, closeModal, loadSources, loadStories;
+	var getSourceName, getSourceURL, xmlToJson, closeModal, loadSources, loadStories,
+	saveActiveSource;
 	var storage, container, settingsURL, settingsLink, close, selectSource, sources;
 
 	storage = chrome.storage.local;
@@ -38,7 +39,7 @@
 			{slate: 'Slate'},
 			{salon: 'Salon'},
 			{techcrunch: 'Techcrunch'},
-			{hacker: 'Hacker'},
+			{hacker: 'Hacker News'},
 			{wired: 'Wired'},
 			{espn: 'ESPN'},
 			{propublica: 'ProPublica'},
@@ -97,7 +98,15 @@
 		}
 	}
 
+	saveActiveSource = function() {
+		var select = document.getElementById('change-source');
+		var activeSource = select.options[select.selectedIndex].innerHTML;
+		storage.set({'active_source': activeSource }, function() {});
+	}
+
 	loadSources = function() {
+		var select = document.getElementById('change-source');
+
 		storage.get('custom_sources', function(obj) {
 			if( Object.keys(obj).length !== 0 ) {
 				obj.custom_sources.forEach( function(v) {
@@ -127,7 +136,21 @@
 				}
 
 				selectSource.innerHTML = output;
-				loadStories();
+
+				storage.get('active_source', function(obj) {
+					if( Object.keys(obj).length !== 0 ) {
+						for (var i = 0; i < select.options.length; i++) {
+							if( select.options[i].innerHTML == obj.active_source ) {
+								select.selectedIndex = i;
+								loadStories();
+								break;
+							}
+						}
+					} else {
+						loadStories();
+					}
+				});
+
 			} else {
 				var msg = 'Please visit the <a target="_blank" href="' + settingsLink + '"">Settings</a> panel to select sources';
 				document.querySelector('.news-list').innerHTML = '<p class="no-sources">' + msg + '</p>';
@@ -176,11 +199,12 @@
 	}
 
 	loadStories = function() {
-
-		document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
+	
 		var select = document.getElementById('change-source');
 		var feedURL = select.options[select.selectedIndex].value;
 		var xhr = new XMLHttpRequest();
+
+		document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
 
 		xhr.open('GET', 'http://allorigins.us/get?url=' + feedURL );
 		xhr.send(null);
@@ -207,9 +231,10 @@
 									if( x[i].children[c].nodeName == "title" ) {
 										// Fixes feedburner label
 										var processTitle = x[i].children[c].innerHTML.replace("<![CDATA[", "").replace("]]>", "");
+										var processLink = 
 										obj.title = processTitle;
 									} else if( x[i].children[c].nodeName == "link" ) {
-										obj.link = x[i].children[c].innerHTML;
+										obj.link = x[i].children[c].innerHTML.replace("<![CDATA[", "").replace("]]>", "");
 									} else if( x[i].children[c].nodeName == "description" ) {
 										obj.description = x[i].children[c].innerHTML;
 									}
@@ -247,6 +272,7 @@
 	 */
 
 	close.addEventListener('click', closeModal);
+	selectSource.addEventListener('change', saveActiveSource);
 	selectSource.addEventListener('change', loadStories);
 	document.addEventListener('DOMContentLoaded', loadSources);
 
