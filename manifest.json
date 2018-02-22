@@ -1,7 +1,7 @@
 {
 	"name": "News Manager",
 	"description": "A quick-way to browse headlines and stories from your favorite news sources without leaving what you're doing.",
-	"version": "1.0.3",
+	"version": "1.0.4",
 
 	"permissions": [
 		"activeTab",
