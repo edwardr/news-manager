@@ -206,7 +206,7 @@
 
 		document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
 
-		xhr.open('GET', 'http://www.whateverorigin.org/get?url=' + feedURL );
+		xhr.open('GET', 'https://allorigins.me/get?url=' + feedURL );
 		xhr.send(null);
 
 		xhr.onreadystatechange = function () {
