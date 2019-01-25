@@ -44,7 +44,8 @@
 			{espn: 'ESPN'},
 			{propublica: 'ProPublica'},
 			{time: 'Time Magazine'},
-			{wallstreet: 'The Wall Street Journal'}
+			{wallstreet: 'The Wall Street Journal'},
+			{pft: 'Pro Football Talk'}
 		];
 
 		for (var key in r ) {
@@ -64,6 +65,7 @@
 			{root: 'http://www.theroot.com/rss'},
 			{jezebel: 'http://jezebel.com/rss'},
 			{reuters: 'http://feeds.reuters.com/reuters/topNews'},
+			{pft: 'https://profootballtalk.nbcsports.com/feed/'},
 			{gizmodo: 'https://gizmodo.com/rss'},
 			{slashdot: 'http://rss.slashdot.org/Slashdot/slashdotMain'},
 			{gothamist: 'http://feeds.gothamistllc.com/gothamist05'},
@@ -206,7 +208,7 @@
 
 		document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
 
-		xhr.open('GET', 'https://allorigins.me/get?url=' + feedURL );
+		xhr.open('GET', 'https://cors-anywhere.herokuapp.com/' + feedURL );
 		xhr.send(null);
 
 		xhr.onreadystatechange = function () {
@@ -214,9 +216,9 @@
 			var OK = 200;
 			if (xhr.readyState === DONE) {
 				if (xhr.status === OK ) {
-					var parse = JSON.parse(xhr.responseText);
+					//var parse = JSON.parse(xhr.responseText);
 					var parser = new DOMParser();
-					var xmlDoc = parser.parseFromString(parse.contents, "text/xml");
+					var xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
 						var r = [];
 						var x = xmlDoc.getElementsByTagName('item');
 						for (var i = 0; i < x.length; i++) {
