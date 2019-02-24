@@ -1,8 +1,19 @@
 (function() {
 	'use strict';
-	var getSourceName, getSourceURL, xmlToJson, closeModal, loadSources, loadStories,
-	saveActiveSource;
-	var storage, container, settingsURL, settingsLink, close, selectSource, sources;
+	var getSourceName,
+			getSourceURL,
+			xmlToJson,
+			closeModal,
+			loadSources,
+			loadStories,
+			saveActiveSource;
+			storage,
+			container,
+			settingsURL,
+			settingsLink,
+			close,
+			selectSource,
+			sources;
 
 	storage = chrome.storage.local;
 	container = document.querySelector('#container');
