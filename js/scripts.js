@@ -6,7 +6,7 @@
 			closeModal,
 			loadSources,
 			loadStories,
-			saveActiveSource;
+			saveActiveSource,
 			storage,
 			container,
 			settingsURL,
@@ -220,6 +220,7 @@
 		document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
 
 		xhr.open('GET', 'https://cors-anywhere.herokuapp.com/' + feedURL );
+		//xhr.open('GET', 'https://api.codewrangler.io/news.php?feed=' + feedURL );
 		xhr.send(null);
 
 		xhr.onreadystatechange = function () {
