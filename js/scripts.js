@@ -100,7 +100,10 @@
       {espn: 'http://www.espn.com/espn/rss/news'},
       {propublica: 'http://feeds.propublica.org/propublica/main'},
       {time: 'http://feeds2.feedburner.com/time/topstories'},
-      {wallstreet: 'http://www.wsj.com/xml/rss/3_7085.xml'}
+      {wallstreet: 'http://www.wsj.com/xml/rss/3_7085.xml'},
+      {
+        rt: 'https://www.rt.com/rss-feed/'
+      }
     ];
 
     for (var key in r ) {
@@ -220,7 +223,6 @@
     document.querySelector('.news-list').innerHTML = '<img class="spinning" src="assets/spin.svg" />';
 
     xhr.open('GET', 'https://cors-anywhere.herokuapp.com/' + feedURL );
-    //xhr.open('GET', 'https://api.codewrangler.io/news.php?feed=' + feedURL );
     xhr.send(null);
 
     xhr.onreadystatechange = function () {
