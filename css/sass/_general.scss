@@ -3,116 +3,116 @@
  */
 
 html.feed {
-	background: #fff;
-	body {
-		font-family: "Droid Sans";
-		margin-bottom: 0;
-		margin-top: 0;
-	}
+  background: #fff;
+  body {
+    font-family: "Droid Sans";
+    margin-bottom: 0;
+    margin-top: 0;
+  }
 
-	#container {
-		position: relative;
-		width: 560px;
-		height: 580px;
-	}
+  #container {
+    position: relative;
+    width: 560px;
+    height: 580px;
+  }
 
-	.header {
-		position: absolute;
-		top: 0;
-		width: 100%;
-		background-color: #fff;
-		padding: 10px 0;
-	}
+  .header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px 0;
+  }
 
-	.close {
-		position: absolute;
-		right: 0;
-		top: 5px;
-		line-height: 0.75;
-		font-size: 1.25em;
-		cursor: pointer;
-	}
+  .close {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    line-height: 0.75;
+    font-size: 1.25em;
+    cursor: pointer;
+  }
 
-	.settings-link img {
-		position: absolute;
-		position: absolute;
-		right: 0px;
-		bottom: -5px;
-		/* width: 100%; */
-		background: white;
-		z-index: 9999999;
-		width: 22px;
-		padding-top: 10px;
-		height: 37px;
-	}
+  .settings-link img {
+    position: absolute;
+    position: absolute;
+    right: 0px;
+    bottom: -5px;
+    /* width: 100%; */
+    background: white;
+    z-index: 9999999;
+    width: 22px;
+    padding-top: 10px;
+    height: 37px;
+  }
 
-	.news-list {
-		padding: 20px 35px;
-		overflow-y: auto;
-		font-size: 1.5em;
-		height: 515px;
-		padding-bottom: 20px;
-		padding-top: 50px;
-	}
+  .news-list {
+    padding: 20px 35px;
+    overflow-y: auto;
+    font-size: 1.5em;
+    height: 515px;
+    padding-bottom: 20px;
+    padding-top: 50px;
+  }
 
-	.header select {
-		padding: 5px 0;
-		background: #fff;
-		border: none;
-		outline: none;
-		font-weight: bold;
-		cursor: pointer;
-	}
+  .header select {
+    padding: 5px 0;
+    background: #fff;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-	.header select:focus,
-	.header select:active {
-		border: none;
-		outline: none;
-	}
+  .header select:focus,
+  .header select:active {
+    border: none;
+    outline: none;
+  }
 
-	.news-list::-webkit-scrollbar { 
-	/*	display: none;*/ 
-	}
+  .news-list::-webkit-scrollbar { 
+  /*	display: none;*/ 
+  }
 
-	body::-webkit-scrollbar { 
-	/*	display: none; */
-	}
+  body::-webkit-scrollbar { 
+  /*	display: none; */
+  }
 
-	.news-list ul {
-		margin: 0;
-		padding: 0;
-		list-style-type: none;
-	}
+  .news-list ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
 
-	.news-list ul li {
-		margin-bottom: 1em;
-	}
+  .news-list ul li {
+    margin-bottom: 1em;
+  }
 
-	.news-list ul li a {
-		color: #222;
-		text-decoration: none;
-	}
+  .news-list ul li a {
+    color: #222;
+    text-decoration: none;
+  }
 
-	.reload {
-		display: block;
-		margin: 0 auto;
-	}
+  .reload {
+    display: block;
+    margin: 0 auto;
+  }
 
-	.no-sources {
-		text-align: center;
-	}
+  .no-sources {
+    text-align: center;
+  }
 
-	.no-sources a {
-		color: #111;
-	}
+  .no-sources a {
+    color: #111;
+  }
 }
 
 .spinning {
-	-webkit-animation:spin 4s linear infinite;
-	-moz-animation:spin 4s linear infinite;
-	animation:spin 4s linear infinite;
-	display: block;
-	margin: 0 auto;
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+  display: block;
+  margin: 0 auto;
 }
 
 @-moz-keyframes spinning { 100% { -moz-transform: rotate(360deg); } }
@@ -120,11 +120,11 @@ html.feed {
 @keyframes spinning { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .scroll::-webkit-scrollbar {
-	width: 5px;
-	height: 8px;
-	background-color: #fff;
+  width: 5px;
+  height: 8px;
+  background-color: #fff;
 }
 
 .scroll::-webkit-scrollbar-thumb {
-		background: #222; 
+    background: #222; 
 }
